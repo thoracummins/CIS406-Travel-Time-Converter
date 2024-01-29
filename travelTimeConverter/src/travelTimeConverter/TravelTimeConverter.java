@@ -14,12 +14,6 @@ public class TravelTimeConverter {
 	int hours;
 	int minutes;
 
-	// calulate minutes
-	public void calculateHoursMinutes()
-	{
-		
-	}
-	
 	// Calculate Hours and Minutes
 	public void  calculateTime()
 	{
@@ -28,12 +22,10 @@ public class TravelTimeConverter {
 		
 		time = (float)miles/mph;
 		hours = (int)miles/mph;
-		minutes =  60*(miles % mph);
+		minutes = (int)Math.round((time - hours)*60);
 		System.out.println("Time is = "+time);
 		System.out.println("Hours is "+hours);
-		System.out.println("Minutes is "+minutes);
-		
-		calculateHoursMinutes();
+		System.out.println("Minutes is "+minutes);	
 	}
 	
 	// Enter Miles Value
