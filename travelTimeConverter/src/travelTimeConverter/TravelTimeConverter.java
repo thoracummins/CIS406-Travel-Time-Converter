@@ -20,12 +20,9 @@ public class TravelTimeConverter {
 		getMiles();
 		getMPH();
 		
-		time = (float)miles/mph;
-		hours = (int)miles/mph;
-		minutes = (int)Math.round((time - hours)*60);
-		System.out.println("Time is = "+time);
-		System.out.println("Hours is "+hours);
-		System.out.println("Minutes is "+minutes);	
+		time = (float)miles/mph;  // calc time
+		hours = (int)miles/mph;  // pull out hours
+		minutes = (int)Math.round((time - hours)*60);  // pull out minutes
 	}
 	
 	// Enter Miles Value
@@ -43,19 +40,32 @@ public class TravelTimeConverter {
 	{
 		// Miles per Hour
 		Scanner dataObj = new Scanner(System.in);
-		System.out.println("Enter Miles Per Hour: ");
+		System.out.println("Enter Miles Per Hour: \n");
 		
 		mph = dataObj.nextInt();
 		
 		dataObj.close();
 	}
 
+	public void printOut()
+	{
+		System.out.println("Welcomm to the Travel Time Calculator \n");
+		
+		calculateTime();
+		
+		System.out.println("Estimated travel time:");
+		System.out.println("----------------------");
+		System.out.println("Hours:     "+hours);
+		System.out.println("Minutes:   "+minutes);
+		
+		System.out.println("Bye!!");
+	}
 	// ---------------------------------------------------------
 	public static void main(String[] args)
 	{
 		TravelTimeConverter ttc = new TravelTimeConverter();
 		
-		ttc.calculateTime();
+		ttc.printOut();
 
 	}
 
